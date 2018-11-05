@@ -38,7 +38,7 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
         }).start();
 
 
-        ord.setText(dr_ord);
+        ord.setText("Gæt ordet: " +gl.getSynligtOrd());
         glg = (ImageView) findViewById(R.id.Galge);
         gk= (Button) findViewById(R.id.gætKnap);
         gk.setOnClickListener(this);
