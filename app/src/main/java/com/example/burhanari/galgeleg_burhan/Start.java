@@ -30,7 +30,7 @@ public class Start extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
 
         if(v.getId() == R.id.spil){
-            Intent sp = new Intent(this, MainActivity.class );
+            Intent sp = new Intent(this, Spil.class );
             startActivity(sp);
         } else if (v.getId() == R.id.hjælp){
             Intent hp = new Intent(this, Hjaelp.class);

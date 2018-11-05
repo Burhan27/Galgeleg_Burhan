@@ -9,13 +9,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class Spil extends AppCompatActivity implements View.OnClickListener{
 
     Galgelogik gl= new Galgelogik();
     TextView ord;
     ImageView glg;
     Button gk;
     EditText gb;
+    String dr_ord;
 
 
 
@@ -25,14 +26,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.spil);
 
         ord = (TextView) findViewById(R.id.ordText);
-        ord.setText("Gæt ordet: " +gl.getSynligtOrd());
+
+        new Thread(new Runnable() {
+            public void run(){
+                try {
+                    gl.hentOrdFraDr();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+
+        ord.setText(dr_ord);
         glg = (ImageView) findViewById(R.id.Galge);
         gk= (Button) findViewById(R.id.gætKnap);
         gk.setOnClickListener(this);
         gb= (EditText) findViewById(R.id.gætBox);
-
-
-
     }
 
     @Override

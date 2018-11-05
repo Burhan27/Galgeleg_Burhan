@@ -17,8 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Hjaelp"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Spil"></activity>
         <activity android:name=".Highscore"></activity>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
