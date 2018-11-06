@@ -16,7 +16,7 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
     ImageView glg;
     Button gk;
     EditText gb;
-    String dr_ord;
+
 
 
 
