@@ -1,39 +1,42 @@
 package com.example.burhanari.galgeleg_burhan;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class Highscore extends AppCompatActivity {
-        /**implements AdapterView.OnItemClickListener {
-
-    Spiller spiller1 = new Spiller("Jack", 190);
-    Spiller spiller2 = new Spiller("Jones", 185);
-
-    Spiller[] test = {spiller1, spiller2};
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.highscore, test){
+        setContentView(R.layout.highscore);
+
+        String[] navne= {"Simon", "Simen", "Smoune", "Simeain"};
+
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.highscore_item, R.id.navn, navne){
             @Override
-            public View getView(int position, View cachedView, ViewGroup parent){
+            public View getView(int position, View cachedView, ViewGroup parent) {
                 View view = super.getView(position, cachedView, parent);
 
                 TextView rank = view.findViewById(R.id.rank);
-                rank.setText();
+                rank.setText(position+1+"");
+
+                return view;
             }
-        }
+        };
+
+        ListView listView = (ListView) findViewById(R.id.highscore);
+        listView.setAdapter(adapter);
     }
 
-    public int getIndex(String navn)
-    {
-        for(Spiller spiller : test)
-        {
-            if(spiller.getNavn().equals(navn))
-                return test.indexOf(spiller);
-        }
-        return -1;
-    }
-    **/
 }

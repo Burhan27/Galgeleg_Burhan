@@ -49,6 +49,7 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         spil();
         gb.setText("");
+        gl.logStatus();
     }
 
     public void spil(){
@@ -75,13 +76,11 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
         }
         else if(gl.getAntalForkerteBogstaver() == 6){
             glg.setImageResource(R.drawable.forkert6);
+            gl.erSpilletTabt();
+            ord.setText("Du har tabt..");
         }
-
         if(gl.erSpilletVundet()){
             ord.setText("Du har vundet!");
-        }
-        else if(gl.erSpilletTabt()){
-            ord.setText("Du har tabt..");
         }
     }
 
