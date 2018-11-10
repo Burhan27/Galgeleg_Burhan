@@ -3,17 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
-        android:id="@+id/vinderTekst"
+        android:id="@+id/Vundet"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginBottom="246dp"
-        android:layout_marginTop="246dp"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginBottom="20dp"
+        android:text="TextView"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Godt Klaret!" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="388dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/Vundet"
+        app:layout_constraintStart_toStartOf="@+id/Vundet"
+        app:layout_constraintTop_toBottomOf="@+id/Vundet" />
 </android.support.constraint.ConstraintLayout>

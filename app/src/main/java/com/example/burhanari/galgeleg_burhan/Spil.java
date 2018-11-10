@@ -56,7 +56,7 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
 
         gl.gætBogstav(gb.getText().toString());
         ord.setText("Gæt ordet: " +gl.getSynligtOrd());
-        ord.append("\n\n Du har gættet " +gl.getAntalForkerteBogstaver()+" bogstaver forkert"+"\n du har gættet følgende bogstaver: " +gl.getBrugteBogstaver());
+        ord.append("\n\n Du har gættet " +gl.getAntalForkerteBogstaver()+" bogstaver forkert"+"\n du har gættet følgende bogstaver: " +gl.getBrugteBogstaver() +"\n Din score =" +gl.getScore() );
 
 
         if(gl.getAntalForkerteBogstaver() == 1){
