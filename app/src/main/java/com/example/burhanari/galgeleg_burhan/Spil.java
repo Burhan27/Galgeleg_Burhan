@@ -1,6 +1,7 @@
 package com.example.burhanari.galgeleg_burhan;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -80,7 +81,8 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
             ord.setText("Du har tabt..");
         }
         if(gl.erSpilletVundet()){
-            ord.setText("Du har vundet!");
+            Intent vinder = new Intent(this, Vinder.class);
+            startActivity(vinder);
         }
     }
 

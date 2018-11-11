@@ -10,24 +10,59 @@
         android:id="@+id/Vundet"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="26dp"
         android:text="TextView"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/vinderTekst"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Godt Klaret!" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/vinderTekst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="388dp"
+        android:layout_marginBottom="30dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/Vundet"
-        app:layout_constraintStart_toStartOf="@+id/Vundet"
+        app:layout_constraintBottom_toTopOf="@+id/navn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Vundet" />
+
+    <Button
+        android:id="@+id/indsend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Indsend score"
+        app:layout_constraintBottom_toTopOf="@+id/spil_igen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navn" />
+
+    <Button
+        android:id="@+id/spil_igen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="182dp"
+        android:text="Fortsæt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/indsend"
+        app:layout_constraintTop_toBottomOf="@+id/indsend" />
+
+    <EditText
+        android:id="@+id/navn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Navn"
+        app:layout_constraintBottom_toTopOf="@+id/indsend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vinderTekst" />
 </android.support.constraint.ConstraintLayout>
