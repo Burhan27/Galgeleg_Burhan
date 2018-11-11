@@ -19,6 +19,7 @@
         <activity android:name=".Hjaelp"></activity>
         <activity android:name=".Spil"></activity>
         <activity android:name=".Highscore"></activity>
+        <activity android:name=".Vinder"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
