@@ -2,6 +2,7 @@ package com.example.burhanari.galgeleg_burhan;
 
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
     ImageView glg;
     Button gk;
     EditText gb;
+    int score = 0;
 
 
 
@@ -28,18 +30,27 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
 
         ord = (TextView) findViewById(R.id.ordText);
 
-        new Thread(new Runnable() {
-            public void run(){
+        new AsyncTask(){
+            @Override
+            protected Object doInBackground(Object... arg0){
                 try {
                     gl.hentOrdFraDr();
+                    return "Ordene er hentet";
                 } catch (Exception e) {
                     e.printStackTrace();
+                    return "Fejl!";
                 }
             }
-        }).start();
+
+            @Override
+            protected void onPostExecute(Object resultat){
+                gl.nulstil();
+                ord.setText("Gæt ordet: " +gl.getSynligtOrd());
+            }
+
+        }.execute();
 
 
-        ord.setText("Gæt ordet: " +gl.getSynligtOrd());
         glg = (ImageView) findViewById(R.id.Galge);
         gk= (Button) findViewById(R.id.gætKnap);
         gk.setOnClickListener(this);
@@ -82,6 +93,8 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
         }
         if(gl.erSpilletVundet()){
             Intent vinder = new Intent(this, Vinder.class);
+            vinder.putExtra("Forsoeg", gl.getBrugteBogstaver().size());
+            vinder.putExtra("Score", gl.getScore());
             startActivity(vinder);
         }
     }

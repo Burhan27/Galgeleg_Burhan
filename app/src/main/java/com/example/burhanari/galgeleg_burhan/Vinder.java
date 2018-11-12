@@ -18,8 +18,11 @@ public class Vinder extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vinder);
 
+        int forsøg = getIntent().getIntExtra("Forsoeg", 0);
+        int score = getIntent().getIntExtra("Score", 0);
+
         TextView vinderTekst = findViewById(R.id.vinderTekst);
-        vinderTekst.setText("Du gættede ordet: " +gl.getOrdet()+ "! med en score på: "+gl.getScore()+"\n Du gættede ordet på: " +gl.getBrugteBogstaver().size()+ " forsøg!"+
+        vinderTekst.setText("Du gættede ordet med en score på: "+score+"\n Du gættede ordet på: " +forsøg+ " forsøg!"+
                                 "\n du kan nu fortsætte med at spilde eller indsende din score til highscoren!");
         Button fortsaet = findViewById(R.id.spil_igen);
         indsend = findViewById(R.id.indsend);
