@@ -1,5 +1,7 @@
 package com.example.burhanari.galgeleg_burhan;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,13 +19,17 @@ import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Highscore extends AppCompatActivity {
+public class Highscore extends AppCompatActivity implements View.OnClickListener {
+
 
     ArrayList<Spiller> spillers = new ArrayList<Spiller>();
+    ArrayList<String> highscore = new ArrayList<String>();
+    Gson gson = new Gson();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,11 +37,35 @@ public class Highscore extends AppCompatActivity {
 
         setContentView(R.layout.highscore);
 
-        Gson gson = new Gson();
+        ImageButton back = findViewById(R.id.backarrow);
+        back.setOnClickListener(this);
+
+        SharedPreferences prefs = getSharedPreferences("Highscore",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        if(prefs.getStringSet("Highscores", null) != null){
+            Set<String> temp = prefs.getStringSet("Highscores", null);
+            highscore = new ArrayList<String>(temp);
+            for(String s: highscore){
+                Spiller spiller = gson.fromJson(s,Spiller.class);
+                spillers.add(spiller);
+            }
+        }
+
         if(gson.fromJson(getIntent().getStringExtra("Spiller"),Spiller.class) != null) {
             Spiller spiller = gson.fromJson(getIntent().getStringExtra("Spiller"), Spiller.class);
             spillers.add(spiller);
             sortSpillers(spillers);
+
+            for(Spiller s: spillers){
+                String hspiller = gson.toJson(s);
+                highscore.add(hspiller);
+            }
+
+            Set<String> set = new HashSet<String>();
+            set.addAll(highscore);
+            editor.putStringSet("Highscores", set);
+            editor.commit();
         }
 
 
@@ -70,5 +101,12 @@ public class Highscore extends AppCompatActivity {
 
             }
         } return spillers;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent st = new Intent(this, Start.class );
+        startActivity(st);
+        finish();
     }
 }
