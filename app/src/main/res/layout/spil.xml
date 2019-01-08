@@ -10,24 +10,20 @@
         android:id="@+id/Galge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
-        android:layout_marginEnd="93dp"
-        android:layout_marginTop="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/ordText"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread_inside"
         app:srcCompat="@drawable/galge" />
 
     <EditText
         android:id="@+id/gætBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Indtast dit bogstav"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/gætKnap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ordText" />
@@ -36,9 +32,8 @@
         android:id="@+id/gætKnap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="67dp"
+        android:layout_marginTop="8dp"
         android:text="Gæt"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gætBox" />
@@ -47,10 +42,9 @@
         android:id="@+id/ordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
-        android:layout_marginStart="160dp"
+        android:layout_marginTop="8dp"
         android:text="henter data..."
-        app:layout_constraintBottom_toTopOf="@+id/gætBox"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Galge" />
 </android.support.constraint.ConstraintLayout>

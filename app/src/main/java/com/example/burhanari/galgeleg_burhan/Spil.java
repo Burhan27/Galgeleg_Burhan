@@ -18,7 +18,7 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
     ImageView glg;
     Button gk;
     EditText gb;
-    int score = 0;
+    int score;
 
 
 
@@ -50,7 +50,8 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
 
         }.execute();
 
-
+        score = getIntent().getIntExtra("Score", 0);
+        gl.setScore(score);
         glg = (ImageView) findViewById(R.id.Galge);
         gk= (Button) findViewById(R.id.gætKnap);
         gk.setOnClickListener(this);
@@ -89,13 +90,17 @@ public class Spil extends AppCompatActivity implements View.OnClickListener{
         else if(gl.getAntalForkerteBogstaver() == 6){
             glg.setImageResource(R.drawable.forkert6);
             gl.erSpilletTabt();
-            ord.setText("Du har tabt..");
+            gl.setScore(0);
+            Intent taber= new Intent(this,Taber.class);
+            startActivity(taber);
+
         }
         if(gl.erSpilletVundet()){
             Intent vinder = new Intent(this, Vinder.class);
             vinder.putExtra("Forsoeg", gl.getBrugteBogstaver().size());
             vinder.putExtra("Score", gl.getScore());
             startActivity(vinder);
+
         }
     }
 

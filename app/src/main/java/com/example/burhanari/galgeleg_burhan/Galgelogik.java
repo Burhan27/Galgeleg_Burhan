@@ -19,7 +19,7 @@ public class Galgelogik {
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
     private boolean spilletErTabt;
-    private int score = 0;
+    private int score;
 
 
     public ArrayList<String> getBrugteBogstaver() {
@@ -35,6 +35,8 @@ public class Galgelogik {
     }
 
     public int getScore(){ return  score; }
+
+    public void setScore(int score) {  this.score = score; }
 
     public int getAntalForkerteBogstaver() {
         return antalForkerteBogstaver;
@@ -111,9 +113,9 @@ public class Galgelogik {
         } else {
             // Vi gættede på et bogstav der ikke var i ordet.
             sidsteBogstavVarKorrekt = false;
-            if(score != 0){
-                score=score-2;
-            }
+            if(score<2){
+                score=0;
+            } else score = score-2;
             System.out.println("Bogstavet var IKKE korrekt: " + bogstav);
             antalForkerteBogstaver = antalForkerteBogstaver + 1;
             if (antalForkerteBogstaver > 6) {
